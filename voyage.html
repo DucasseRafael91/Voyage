@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voyage</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="voyage.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="images/logo.png" alt="Logo Voyage" width="50" />
+          </a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Accueil</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#">Meilleurs Offres</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#">Nous Contactez</a>
+              </li>
+
+              <li class="nav-item">
+                <button type="button" class="btn btn-outline-light me-2">
+                  Connexion
+                </button>
+              </li>
+
+              <li class="nav-item">
+                <button type="button" class="btn btn-primary">
+                  Inscription
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero"></section>
+
+    <section class="cards py-5">
+      <div class="container">
+        <h1 class="text-center mb-5">
+          Nos visites disponibles autour du monde
+        </h1>
+
+        <div class="row">
+          <!-- Filtres (gauche) -->
+          <aside class="col-md-3 mb-4">
+            <div class="card p-3">
+              <h5 class="mb-3">Filtres</h5>
+
+              <div class="mb-3">
+                <label class="form-label">Prix minimum (€)</label>
+                <input type="number" class="form-control" placeholder="0" />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Prix maximum (€)</label>
+                <input type="number" class="form-control" placeholder="3000" />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Destination</label>
+                <select class="form-select">
+                  <option>Toutes</option>
+                  <option>Europe</option>
+                  <option>Asie</option>
+                  <option>Amérique</option>
+                </select>
+              </div>
+
+              <button class="btn btn-primary w-100">Appliquer</button>
+            </div>
+          </aside>
+
+          <div class="col-md-9">
+            <div class="row g-4" id="cards-container">
+              <!-- Cards générées par JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="voyage.js"></script>
+  </body>
+</html>

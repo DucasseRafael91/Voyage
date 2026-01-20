@@ -1,0 +1,86 @@
+[
+  {
+    "id": "REF001",
+    "nom": "Musée du Louvre",
+    "prix": 1200,
+    "image": "images/louvre.png",
+    "continent": "Europe"
+  },
+  {
+    "id": "REF002",
+    "nom": "Christ Redempteur",
+    "prix": 2200,
+    "image": "images/redempteur.png",
+    "continent": "Amérique"
+  },
+  {
+    "id": "REF003",
+    "nom": "Big Ben",
+    "prix": 1800,
+    "image": "images/bigben.png",
+    "continent": "Europe"
+  },
+  {
+    "id": "REF003",
+    "nom": "Sagrada Familia",
+    "prix": 1800,
+    "image": "images/sagrada.png",
+    "continent": "Europe"
+  },
+  {
+    "id": "REF003",
+    "nom": "Tour Eiffel",
+    "prix": 1800,
+    "image": "images/eiffel.png",
+    "continent": "Europe"
+  },
+  {
+    "id": "REF003",
+    "nom": "Colisée",
+    "prix": 1800,
+    "image": "images/colisee.png",
+    "continent": "Europe"
+  },
+  {
+    "id": "REF003",
+    "nom": "Machu Picchu",
+    "prix": 1800,
+    "image": "images/machupicchu.png",
+    "continent": "Amérique"
+  },
+  {
+    "id": "REF003",
+    "nom": "Grande Muraille de Chine",
+    "prix": 1800,
+    "image": "images/muraillechine.png",
+    "continent": "Asie"
+  },
+  {
+    "id": "REF003",
+    "nom": "Opéra de Sydney",
+    "prix": 1800,
+    "image": "images/operasydney.png",
+    "continent": "Océanie"
+  },
+  {
+    "id": "REF003",
+    "nom": "Acropole",
+    "prix": 1800,
+    "image": "images/acropole.png",
+    "continent": "Europe"
+  },
+  {
+    "id": "REF003",
+    "nom": "Chichén Itzà",
+    "prix": 1800,
+    "image": "images/chichen.png",
+    "continent": "Amérique"
+  },
+  {
+    "id": "REF003",
+    "nom": "Temple Kinkaku",
+    "prix": 1800,
+    "image": "images/kinkaku.png",
+    "continent": "Asie"
+  }
+]
