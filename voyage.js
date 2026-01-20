@@ -13,7 +13,8 @@ fetch('data.json')
               <p class="">A partir de ${item.prix} €</p>
               <button type="button" class="btn btn-primary rounded-pill">
                   Ajouter au panier
-                </button>
+              </button>
+              <p class="card-text">${item.description} €</p>
             </div>
           </div>
         </div>
