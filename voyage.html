@@ -3,186 +3,182 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Titre de la page -->
     <title>Voyage</title>
-
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap -->
     <link
       rel="stylesheet"
       href="node_modules/bootstrap/dist/css/bootstrap.min.css"
     />
-
-    <!-- Bootstrap Icons -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
     />
-
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="voyage.css" />
   </head>
 
   <body>
-    <!-- Navbar -->
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
-        <div class="container">
-          <a class="navbar-brand" href="#">
-            <img src="images/logo.png" alt="Logo Voyage" width="50" />
-          </a>
-
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto align-items-center">
-              <li class="nav-item">
-                <a class="nav-link active" href="#">Accueil</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Meilleurs Offres</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Nous Contactez</a>
-              </li>
-              <li class="nav-item">
-                <button
-                  type="button"
-                  class="btn btn-outline-light me-2 rounded-pill"
-                >
-                  Connexion
-                </button>
-              </li>
-              <li class="nav-item">
-                <button type="button" class="btn btn-primary rounded-pill">
-                  Inscription
-                </button>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section
-      class="hero"
-      style="
-        height: 400px;
-        background: url(&quot;images/hero.jpg&quot;) center/cover no-repeat;
-      "
-    ></section>
-
-    <!-- Cards Section -->
-    <section class="cards py-5">
+    <!-- Top bar de navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
       <div class="container">
+        <!-- Logo de la top bar -->
+        <a class="navbar-brand" href="#"
+          ><img src="images/logo.png" alt="Logo Voyage" width="50"
+        /></a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Meilleurs Offres</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Nous Contactez</a>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-outline-light me-2 rounded-pill">
+                Connexion
+              </button>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-primary rounded-pill">Inscription</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Section de la baniére -->
+    <section class="hero"></section>
+
+    <section class="cards py-5">
+      <div class="container-fluid">
         <h1 class="text-center mb-5">
           Nos visites disponibles autour du monde
         </h1>
 
         <div class="row">
-          <!-- Filtres -->
-          <aside class="col-md-3 mb-4">
-            <div class="card p-3">
-              <h5 class="mb-3">Filtres</h5>
+          <!-- FILTRE GAUCHE (pleine largeur écran) -->
+          <aside class="col-lg-3 col-xl-2 px-4">
+            <div class="card p-3 shadow-sm sticky-top" style="top: 100px">
+              <h5 class="fw-bold mb-3">Filtrer les voyages</h5>
 
               <div class="mb-3">
-                <label class="form-label">Prix minimum (€)</label>
-                <input type="number" class="form-control" placeholder="0" />
-              </div>
-
-              <div class="mb-3">
-                <label class="form-label">Prix maximum (€)</label>
-                <input type="number" class="form-control" placeholder="3000" />
+                <label class="form-label">Continent</label>
+                <select class="form-select">
+                  <option value="">Toutes</option>
+                  <option value="1">Afrique</option>
+                  <option value="2">Amérique du Nord</option>
+                  <option value="3">Amérique du Sud</option>
+                  <option value="4">Antarctique</option>
+                  <option value="5">Asie</option>
+                  <option value="6">Europe</option>
+                  <option value="7">Océanie</option>
+                </select>
               </div>
 
               <div class="mb-3">
                 <label class="form-label">Destination</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Ex : Paris"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Personnes</label>
                 <select class="form-select">
-                  <option>Toutes</option>
-                  <option>Europe</option>
-                  <option>Asie</option>
-                  <option>Amérique</option>
+                  <option value="">Toutes</option>
+                  <option value="1">1 personne</option>
+                  <option value="2">2 personnes</option>
+                  <option value="4">4 personnes</option>
                 </select>
               </div>
 
-              <button class="btn btn-primary w-100">Appliquer</button>
+              <button class="btn btn-primary rounded-pill w-100">
+                Appliquer
+              </button>
             </div>
           </aside>
 
-          <!-- Cards -->
-          <div class="col-md-9">
-            <div class="row g-4" id="cards-container">
-              <!-- Cards générées par JS -->
+          <!-- ZONE CENTRALE AVEC CONTAINER -->
+          <div class="col-lg-9 col-xl-10">
+            <div class="container">
+              <div class="row g-4 justify-content-center" id="cards-container">
+                <!-- Cards générées par JS -->
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-<!-- Contact Section -->
-<section class="contact py-5 bg-light">
-  <div class="row align-items-stretch g-0">
-    <!-- Infos de contact -->
-    <div class="col-md-5 mb-4 mb-md-0 px-4">
-      <div class="card h-100 p-4 shadow-sm">
-        <h1 class="mb-4 text-center"><strong>Nous contacter</strong></h1>
-        <p class="text-center">
-          Remplissez le formulaire et nous vous recontacterons
-        </p>
-
-        <p class="mb-3">
-          <i class="bi bi-geo-alt"></i>
-          <strong>12 rue du Voyage, 75000 Paris, France</strong>
-        </p>
-
-        <p class="mb-3">
-          <i class="bi bi-telephone-fill"></i>
-          <strong>+06 23 45 65 43 34</strong>
-        </p>
-
-        <p class="mb-3">
-          <i class="bi bi-envelope"></i>
-          <strong>Voyage@gmail.com</strong>
-        </p>
+    <!-- Contact Section -->
+    <section class="contact py-5 bg-light">
+      <div class="row g-0 align-items-stretch">
+        <div class="col-md-5 px-4 mb-4 mb-md-0">
+          <div class="card h-100 p-4 shadow-sm">
+            <h1 class="mb-4 text-center"><strong>Nous contacter</strong></h1>
+            <p class="text-center mb-3">
+              Remplissez le formulaire et nous vous recontacterons
+            </p>
+            <p class="mb-3">
+              <i class="bi bi-geo-alt"></i>
+              <strong>12 rue du Voyage, 75000 Paris, France</strong>
+            </p>
+            <p class="mb-3">
+              <i class="bi bi-telephone-fill"></i>
+              <strong>+06 23 45 65 43 34</strong>
+            </p>
+            <p class="mb-3">
+              <i class="bi bi-envelope"></i> <strong>Voyage@gmail.com</strong>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-7 px-4">
+          <div
+            class="card p-4 shadow-sm h-100 d-flex flex-column justify-content-center"
+          >
+            <form>
+              <div class="mb-3">
+                <label class="form-label">Nom et Prénom</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Votre nom"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Votre email"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Message</label>
+                <textarea
+                  class="form-control"
+                  rows="5"
+                  placeholder="Votre message..."
+                  required
+                ></textarea>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary px-4 rounded-pill">
+                  Envoyer
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <!-- Formulaire -->
-    <div class="col-md-7 px-4">
-      <div class="card p-4 shadow-sm h-100 d-flex flex-column justify-content-center">
-        <form>
-          <div class="mb-3">
-            <label class="form-label">Nom et Prénom</label>
-            <input type="text" class="form-control" placeholder="Votre nom" required />
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-control" placeholder="Votre email" required />
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Message</label>
-            <textarea class="form-control" rows="5" placeholder="Votre message..." required></textarea>
-          </div>
-
-          <div class="text-center">
-            <button type="submit" class="btn btn-primary px-4 rounded-pill">
-              Envoyer
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
+    </section>
 
     <!-- Footer -->
     <footer class="bg-dark text-light py-4">
@@ -200,9 +196,7 @@
       </div>
     </footer>
 
-    <!-- Bootstrap JS -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
     <script src="voyage.js"></script>
   </body>
 </html>

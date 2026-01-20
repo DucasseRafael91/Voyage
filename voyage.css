@@ -1,5 +1,5 @@
 :root {
-  --bs-primary: #FA8B02;      /* couleur principale */
+  --bs-primary: #FA8B02; /* orange */      /* couleur principale */
   --bs-secondary: #6c757d;    /* secondaire */
   --bs-success: #28a745;
   --bs-danger: #dc3545;
@@ -42,10 +42,6 @@ body {
   border-radius: 8px; /* optionnel, coins arrondis */
 }
 
-
-
-
-
 /* Hero section */
 .hero {
   height: 60vh;
@@ -76,6 +72,12 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+.price {
+  color: var(--bs-primary); 
+  font-weight: bold;
+}
+
 
 
 .btn-primary {
