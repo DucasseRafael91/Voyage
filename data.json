@@ -5,7 +5,8 @@
     "prix": 1200,
     "image": "images/louvre.png",
     "continent": "Europe",
-    "description": "Le plus grand musée d’art au monde, situé à Paris, célèbre pour abriter la Joconde et des milliers d’œuvres historiques."
+    "description": "Le plus grand musée d’art au monde, situé à Paris, célèbre pour abriter la Joconde et des milliers d’œuvres historiques.",
+    "personnes": "15-20"
   },
   {
     "id": "REF002",
@@ -13,7 +14,8 @@
     "prix": 2200,
     "image": "images/redempteur.png",
     "continent": "Amérique",
-    "description": "Statue emblématique de Rio de Janeiro, symbole du Brésil, offrant une vue panoramique spectaculaire sur la ville."
+    "description": "Statue emblématique de Rio de Janeiro, symbole du Brésil, offrant une vue panoramique spectaculaire sur la ville.",
+    "personnes": "5-10"
   },
   {
     "id": "REF003",
@@ -21,7 +23,8 @@
     "prix": 1800,
     "image": "images/bigben.png",
     "continent": "Europe",
-    "description": "Tour horloge mythique de Londres, symbole du Royaume-Uni et chef-d’œuvre de l’architecture néogothique."
+    "description": "Tour horloge mythique de Londres, symbole du Royaume-Uni et chef-d’œuvre de l’architecture néogothique.",
+    "personnes": "0-5"
   },
   {
     "id": "REF003",
@@ -29,7 +32,8 @@
     "prix": 1800,
     "image": "images/sagrada.png",
     "continent": "Europe",
-    "description": "Basilique unique de Barcelone conçue par Antoni Gaudí, célèbre pour son architecture organique et toujours en construction."
+    "description": "Basilique unique de Barcelone conçue par Antoni Gaudí, célèbre pour son architecture organique et toujours en construction.",
+    "personnes": "10-25"
   },
   {
     "id": "REF003",
@@ -37,7 +41,8 @@
     "prix": 1800,
     "image": "images/eiffel.png",
     "continent": "Europe",
-    "description": "Monument emblématique de Paris et de la France, offrant une vue exceptionnelle sur la capitale."
+    "description": "Monument emblématique de Paris et de la France, offrant une vue exceptionnelle sur la capitale.",
+    "personnes": "25-50"
   },
   {
     "id": "REF003",
@@ -45,7 +50,8 @@
     "prix": 1800,
     "image": "images/colisee.png",
     "continent": "Europe",
-    "description": "Ancien amphithéâtre romain situé à Rome, témoin spectaculaire de l’histoire et de la grandeur de l’Empire romain."
+    "description": "Ancien amphithéâtre romain situé à Rome, témoin spectaculaire de l’histoire et de la grandeur de l’Empire romain.",
+    "personnes": "5-10"
   },
   {
     "id": "REF003",
@@ -53,7 +59,8 @@
     "prix": 1800,
     "image": "images/machupicchu.png",
     "continent": "Amérique",
-    "description": "Ancienne cité inca perchée dans les Andes péruviennes, classée au patrimoine mondial de l’UNESCO."
+    "description": "Ancienne cité inca perchée dans les Andes péruviennes, classée au patrimoine mondial de l’UNESCO.",
+    "personnes": "10-25"
   },
   {
     "id": "REF003",
@@ -61,7 +68,8 @@
     "prix": 1800,
     "image": "images/muraillechine.png",
     "continent": "Asie",
-    "description": "Immense ouvrage défensif s’étendant sur des milliers de kilomètres, symbole de l’histoire et de la civilisation chinoise."
+    "description": "Immense ouvrage défensif s’étendant sur des milliers de kilomètres, symbole de l’histoire et de la civilisation chinoise.",
+    "personnes": "+50"
   },
   {
     "id": "REF003",
@@ -69,7 +77,8 @@
     "prix": 1800,
     "image": "images/operasydney.png",
     "continent": "Océanie",
-    "description": "Bâtiment iconique de l’Australie, reconnu pour son architecture moderne en forme de voiles."
+    "description": "Bâtiment iconique de l’Australie, reconnu pour son architecture moderne en forme de voiles.",
+    "personnes": "5-10"
   },
   {
     "id": "REF003",
@@ -77,7 +86,8 @@
     "prix": 1800,
     "image": "images/acropole.png",
     "continent": "Europe",
-    "description": "Site antique dominant Athènes, regroupant des temples emblématiques de la Grèce antique, dont le Parthénon."
+    "description": "Site antique dominant Athènes, regroupant des temples emblématiques de la Grèce antique, dont le Parthénon.",
+    "personnes": "5-10"
   },
   {
     "id": "REF003",
@@ -85,7 +95,8 @@
     "prix": 1800,
     "image": "images/chichen.png",
     "continent": "Amérique",
-    "description": "Ancienne cité maya du Mexique, célèbre pour sa pyramide de Kukulcán et ses connaissances astronomiques."
+    "description": "Ancienne cité maya du Mexique, célèbre pour sa pyramide de Kukulcán et ses connaissances astronomiques.",
+    "personnes": "5-10"
   },
   {
     "id": "REF003",
@@ -93,6 +104,7 @@
     "prix": 1800,
     "image": "images/kinkaku.png",
     "continent": "Asie",
-    "description": "Pavillon d’or situé à Kyoto, temple zen entouré de jardins paisibles et recouvert de feuilles d’or."
+    "description": "Pavillon d’or situé à Kyoto, temple zen entouré de jardins paisibles et recouvert de feuilles d’or.",
+    "personnes": "5-10"
   }
 ]
