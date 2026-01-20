@@ -10,7 +10,10 @@ fetch('data.json')
             <img src="${item.image}" class="card-img-top" alt="${item.nom}">
             <div class="card-body">
               <h5 class="card-title">${item.nom}</h5>
-              <p class="fw-bold">A partir de ${item.prix} €</p>
+              <p class="">A partir de ${item.prix} €</p>
+              <button type="button" class="btn btn-primary rounded-pill">
+                  Ajouter au panier
+                </button>
             </div>
           </div>
         </div>
@@ -18,5 +21,5 @@ fetch('data.json')
       container.innerHTML += card;
     });
   })
-  .catch(error => console.error('Erreur chargement data:', error));
+  .catch(error => console.error('Erreur chargement données:', error));
 
