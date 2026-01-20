@@ -4,83 +4,95 @@
     "nom": "Musée du Louvre",
     "prix": 1200,
     "image": "images/louvre.png",
-    "continent": "Europe"
+    "continent": "Europe",
+    "description": "Le plus grand musée d’art au monde, situé à Paris, célèbre pour abriter la Joconde et des milliers d’œuvres historiques."
   },
   {
     "id": "REF002",
     "nom": "Christ Redempteur",
     "prix": 2200,
     "image": "images/redempteur.png",
-    "continent": "Amérique"
+    "continent": "Amérique",
+    "description": "Statue emblématique de Rio de Janeiro, symbole du Brésil, offrant une vue panoramique spectaculaire sur la ville."
   },
   {
     "id": "REF003",
     "nom": "Big Ben",
     "prix": 1800,
     "image": "images/bigben.png",
-    "continent": "Europe"
+    "continent": "Europe",
+    "description": "Tour horloge mythique de Londres, symbole du Royaume-Uni et chef-d’œuvre de l’architecture néogothique."
   },
   {
     "id": "REF003",
     "nom": "Sagrada Familia",
     "prix": 1800,
     "image": "images/sagrada.png",
-    "continent": "Europe"
+    "continent": "Europe",
+    "description": "Basilique unique de Barcelone conçue par Antoni Gaudí, célèbre pour son architecture organique et toujours en construction."
   },
   {
     "id": "REF003",
     "nom": "Tour Eiffel",
     "prix": 1800,
     "image": "images/eiffel.png",
-    "continent": "Europe"
+    "continent": "Europe",
+    "description": "Monument emblématique de Paris et de la France, offrant une vue exceptionnelle sur la capitale."
   },
   {
     "id": "REF003",
     "nom": "Colisée",
     "prix": 1800,
     "image": "images/colisee.png",
-    "continent": "Europe"
+    "continent": "Europe",
+    "description": "Ancien amphithéâtre romain situé à Rome, témoin spectaculaire de l’histoire et de la grandeur de l’Empire romain."
   },
   {
     "id": "REF003",
     "nom": "Machu Picchu",
     "prix": 1800,
     "image": "images/machupicchu.png",
-    "continent": "Amérique"
+    "continent": "Amérique",
+    "description": "Ancienne cité inca perchée dans les Andes péruviennes, classée au patrimoine mondial de l’UNESCO."
   },
   {
     "id": "REF003",
     "nom": "Grande Muraille de Chine",
     "prix": 1800,
     "image": "images/muraillechine.png",
-    "continent": "Asie"
+    "continent": "Asie",
+    "description": "Immense ouvrage défensif s’étendant sur des milliers de kilomètres, symbole de l’histoire et de la civilisation chinoise."
   },
   {
     "id": "REF003",
     "nom": "Opéra de Sydney",
     "prix": 1800,
     "image": "images/operasydney.png",
-    "continent": "Océanie"
+    "continent": "Océanie",
+    "description": "Bâtiment iconique de l’Australie, reconnu pour son architecture moderne en forme de voiles."
   },
   {
     "id": "REF003",
     "nom": "Acropole",
     "prix": 1800,
     "image": "images/acropole.png",
-    "continent": "Europe"
+    "continent": "Europe",
+    "description": "Site antique dominant Athènes, regroupant des temples emblématiques de la Grèce antique, dont le Parthénon."
   },
   {
     "id": "REF003",
     "nom": "Chichén Itzà",
     "prix": 1800,
     "image": "images/chichen.png",
-    "continent": "Amérique"
+    "continent": "Amérique",
+    "description": "Ancienne cité maya du Mexique, célèbre pour sa pyramide de Kukulcán et ses connaissances astronomiques."
   },
   {
     "id": "REF003",
     "nom": "Temple Kinkaku",
     "prix": 1800,
     "image": "images/kinkaku.png",
-    "continent": "Asie"
+    "continent": "Asie",
+    "description": "Pavillon d’or situé à Kyoto, temple zen entouré de jardins paisibles et recouvert de feuilles d’or."
   }
 ]
