@@ -44,6 +44,21 @@
             <li class="nav-item">
               <button class="btn btn-primary rounded-pill">Inscription</button>
             </li>
+            <li class="nav-item ms-2">
+              <button
+                class="btn btn-outline-light rounded-pill position-relative"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#cartOffcanvas"
+              >
+                <i class="bi bi-cart"></i>
+                <span
+                  id="cart-count"
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                >
+                  0
+                </span>
+              </button>
+            </li>
           </ul>
         </div>
       </div>
@@ -284,6 +299,28 @@
         </div>
       </div>
     </footer>
+
+    <!-- PANIER -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Votre panier</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+        ></button>
+      </div>
+
+      <div class="offcanvas-body">
+        <ul class="list-group mb-3" id="cart-items"></ul>
+
+        <h5 class="text-end">Total : <span id="cart-total">0</span> €</h5>
+
+        <button class="btn btn-success w-100 rounded-pill mt-3">
+          Valider la commande
+        </button>
+      </div>
+    </div>
 
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="voyage.js"></script>
