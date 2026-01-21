@@ -79,22 +79,111 @@
               </div>
 
               <div class="mb-3">
-                <label class="form-label">Destination</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Ex : Paris"
-                />
+                <label class="form-label">Visite Guidée</label>
+                <div class="form-check form-switch">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="flexSwitchCheckDefault"
+                  />
+                  <label class="form-check-label" for="flexSwitchCheckDefault"
+                    >Incluse</label
+                  >
+                </div>
               </div>
 
               <div class="mb-3">
-                <label class="form-label">Personnes</label>
-                <select class="form-select">
-                  <option value="">Toutes</option>
-                  <option value="1">1 personne</option>
-                  <option value="2">2 personnes</option>
-                  <option value="4">4 personnes</option>
-                </select>
+                <label class="form-label">Langues</label>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="Francais"
+                  />
+                  <label class="form-check-label" for="Francais">
+                    Francais
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="Anglais"
+                  />
+                  <label class="form-check-label" for="Anglais">
+                    Anglais
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="Espagnol"
+                  />
+                  <label class="form-check-label" for="Espagnol">
+                    Espagnol
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="Allemand"
+                  />
+                  <label class="form-check-label" for="Allemand">
+                    Allemand
+                  </label>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Nombres de personnes</label>
+
+                <div class="d-flex flex-wrap gap-2 mb-2">
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-primary rounded-pill"
+                  >
+                    -5
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-primary rounded-pill"
+                  >
+                    5 - 10
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-primary rounded-pill"
+                  >
+                    10 - 25
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-primary rounded-pill"
+                  >
+                    25 - 50
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-primary rounded-pill"
+                  >
+                    + 50
+                  </button>
+                </div>
+
+                <div></div>
+              </div>
+
+              <label class="form-label">Prix</label>
+              <div class="mb-3 d-flex gap-3">
+                <input type="number" class="form-control" placeholder="Min" />
+                <input type="number" class="form-control" placeholder="Max" />
               </div>
 
               <button class="btn btn-primary rounded-pill w-100">
