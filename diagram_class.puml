@@ -1,0 +1,51 @@
+@startuml Voyage
+
+class Voyage
+{
+    -int ref_id
+    -string nom
+    -double prix
+    -string lien_image
+    -text description
+    -boolean est_guidee 
+}
+
+class Continent
+{
+    -integer id
+    -string nom
+}
+
+class Langues
+{
+    -integer id
+    -string nom
+}
+
+class Personnes
+{
+    -integer id
+    -string nombre_personnes
+}
+
+class Utilisateur
+{
+    -integer id
+    -string nom
+    -string prenom
+    -string addresse
+}
+
+class Commande
+{
+    -integer id
+    -string date_commande
+}
+
+Continent "1" --> "0..n" Voyage : contient >
+Langues "0..n" --> "0..n" Voyage : propose >
+Personnes "1" --> "0..n" Voyage : comporte >
+Commande "1" --> "0..n" Voyage : est composé >
+Commande "1" <-- "0..n" Utilisateur : effectue >
+
+@enduml
