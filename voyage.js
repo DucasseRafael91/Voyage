@@ -16,6 +16,9 @@ const languageCheckboxes = [
   document.getElementById("Allemand")
 ];
 
+const guidedSwitch = document.getElementById("flexSwitchCheckDefault");
+
+
 let allData = [];
 
 /* ================= CHARGEMENT DONNÉES ================= */
@@ -54,7 +57,6 @@ function displayCards(data) {
       </div>
     `;
 
-    // Clic sur la card pour afficher le modal (ignore le bouton)
     card.querySelector(".card").addEventListener("click", (e) => {
       if (e.target.classList.contains("add-to-cart-btn")) return;
       showModal(item);
@@ -64,6 +66,7 @@ function displayCards(data) {
   });
 }
 
+
 /* ================= FILTRES COMBINÉS ================= */
 function applyFilters() {
   const selectedContinent = continentFilter.value;
@@ -72,26 +75,38 @@ function applyFilters() {
     .filter(cb => cb.checked)
     .map(cb => cb.id);
 
+  const isGuidedOnly = guidedSwitch.checked;
+
   let filteredData = allData;
 
+  // Filtre continent
   if (selectedContinent !== "") {
-    filteredData = filteredData.filter(item => item.continent === selectedContinent);
+    filteredData = filteredData.filter(
+      item => item.continent === selectedContinent
+    );
   }
 
+  // Filtre langues
   if (selectedLanguages.length > 0) {
     filteredData = filteredData.filter(item =>
       item.langues.some(lang => selectedLanguages.includes(lang))
     );
   }
 
+    // Filtre guidée
+  if (isGuidedOnly) {
+    filteredData = filteredData.filter(item => item.guidée === 1);
+  }
+
   displayCards(filteredData);
 }
 
-/* ================= ÉVÉNEMENTS FILTRES ================= */
+
 continentFilter.addEventListener("change", applyFilters);
 languageCheckboxes.forEach(cb => cb.addEventListener("change", applyFilters));
+guidedSwitch.addEventListener("change", applyFilters);
 
-/* ================= PANIER ================= */
+
 function addToCart(product) {
   const found = cart.find(item => item.id === product.id);
 
@@ -142,7 +157,6 @@ function updateCartUI() {
   cartCount.textContent = count;
 }
 
-/* ================= MODAL ================= */
 function showModal(item) {
   const modal = new bootstrap.Modal(document.getElementById("cardModal"));
 
@@ -155,7 +169,6 @@ function showModal(item) {
   document.getElementById("modalLanguages").textContent = item.langues.join(", ");
   document.getElementById("modalContinent").textContent = item.continent;
 
-  // Ajouter au panier depuis le modal
   const modalAddBtn = document.getElementById("modalAddToCartBtn");
   modalAddBtn.onclick = () => {
     addToCart(item);
