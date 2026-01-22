@@ -240,15 +240,12 @@
       </div>
     </footer>
 
-    <!-- PANIER -->
+    <!-- Modal affichant le panier -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title">Votre panier</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="offcanvas"
-        ></button>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas">
+        </button>
       </div>
 
       <div class="offcanvas-body">
@@ -262,45 +259,38 @@
       </div>
     </div>
 
-    <!-- Modal détails voyage -->
-    <div
-      class="modal fade"
-      id="cardModal"
-      tabindex="-1"
-      aria-labelledby="cardModalLabel"
-      aria-hidden="true"
-    >
+    <!-- Modal quand clic sur une card -->
+    <div class="modal fade" id="cardModal" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="cardModalLabel">Détails du voyage</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Fermer"
-            ></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer">
+            </button>
           </div>
           <div class="modal-body">
-            <!-- Ligne principale : image à gauche, détails à droite -->
             <div class="row">
+
               <!-- Colonne gauche : image -->
-              <div
-                class="col-md-6 d-flex justify-content-center align-items-start mb-3 mb-md-0"
-              >
+              <div class="col-md-6 ">
                 <img id="modalImage" src="" alt="" class="img-fluid" />
               </div>
 
               <!-- Colonne droite : détails -->
               <div class="col-md-6">
-                <p><strong>Prix :</strong> <span id="modalPrice"></span> €</p>
+                <!-- Colonne droite : Prix -->
                 <p>
-                  <strong>Nombre de personnes :</strong>
-                  <span id="modalPersons"></span>
+                  <strong>Prix :</strong> <span id="modalPrice"></span> €
                 </p>
+                <!-- Colonne droite : Nombres de personnes -->
+                <p>
+                  <strong>Nombre de personnes :</strong> <span id="modalPersons"></span>
+                </p>
+                <!-- Colonne droite : Langues -->
                 <p>
                   <strong>Langues :</strong> <span id="modalLanguages"></span>
                 </p>
+                <!-- Colonne droite : Continent -->
                 <p>
                   <strong>Continent :</strong> <span id="modalContinent"></span>
                 </p>
