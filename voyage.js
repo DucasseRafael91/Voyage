@@ -18,6 +18,8 @@ const languageCheckboxes = [
 
 const guidedSwitch = document.getElementById("flexSwitchCheckDefault");
 
+const personsButtons = document.querySelectorAll(".persons-btn");
+let selectedPersons = "";
 
 let allData = [];
 
@@ -79,27 +81,31 @@ function applyFilters() {
 
   let filteredData = allData;
 
-  // Filtre continent
   if (selectedContinent !== "") {
     filteredData = filteredData.filter(
       item => item.continent === selectedContinent
     );
   }
 
-  // Filtre langues
   if (selectedLanguages.length > 0) {
     filteredData = filteredData.filter(item =>
       item.langues.some(lang => selectedLanguages.includes(lang))
     );
   }
 
-    // Filtre guidée
   if (isGuidedOnly) {
     filteredData = filteredData.filter(item => item.guidée === 1);
   }
 
+  if (selectedPersons !== "") {
+    filteredData = filteredData.filter(
+      item => item.personnes === selectedPersons
+    );
+  }
+
   displayCards(filteredData);
 }
+
 
 
 continentFilter.addEventListener("change", applyFilters);
@@ -156,6 +162,30 @@ function updateCartUI() {
   cartTotal.textContent = total;
   cartCount.textContent = count;
 }
+
+personsButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    // Toggle (désélection si recliqué)
+    if (selectedPersons === btn.dataset.personnes) {
+      selectedPersons = "";
+      btn.classList.remove("btn-primary");
+      btn.classList.add("btn-outline-primary");
+    } else {
+      selectedPersons = btn.dataset.personnes;
+
+      personsButtons.forEach(b => {
+        b.classList.remove("btn-primary");
+        b.classList.add("btn-outline-primary");
+      });
+
+      btn.classList.remove("btn-outline-primary");
+      btn.classList.add("btn-primary");
+    }
+
+    applyFilters();
+  });
+});
+
 
 function showModal(item) {
   const modal = new bootstrap.Modal(document.getElementById("cardModal"));
