@@ -7,7 +7,8 @@
     "continent": "Europe",
     "langues": ["Français", "Anglais", "Espagnol", "Allemand"],
     "description": "Le plus grand musée d’art au monde, situé à Paris, célèbre pour abriter la Joconde et des milliers d’œuvres historiques.",
-    "personnes": "15-20"
+    "personnes": "15-20",
+    "guidée": 1
   },
   {
     "id": "REF002",
@@ -17,7 +18,8 @@
     "continent": "Amérique du Sud",
     "langues": ["Anglais", "Espagnol"],
     "description": "Statue emblématique de Rio de Janeiro, symbole du Brésil, offrant une vue panoramique spectaculaire sur la ville.",
-    "personnes": "5-10"
+    "personnes": "5-10",
+        "guidée": 1
   },
   {
     "id": "REF004",
@@ -27,7 +29,8 @@
     "continent": "Europe",
     "langues": ["Anglais", "Français", "Espagnol"],
     "description": "Tour horloge mythique de Londres, symbole du Royaume-Uni et chef-d’œuvre de l’architecture néogothique.",
-    "personnes": "0-5"
+    "personnes": "0-5",
+        "guidée": 0
   },
   {
     "id": "REF005",
@@ -37,7 +40,8 @@
     "continent": "Europe",
     "langues": ["Espagnol", "Anglais", "Français"],
     "description": "Basilique unique de Barcelone conçue par Antoni Gaudí, célèbre pour son architecture organique et toujours en construction.",
-    "personnes": "10-25"
+    "personnes": "10-25",
+        "guidée": 1
   },
   {
     "id": "REF006",
@@ -47,7 +51,8 @@
     "continent": "Europe",
     "langues": ["Français", "Anglais", "Espagnol", "Allemand"],
     "description": "Monument emblématique de Paris et de la France, offrant une vue exceptionnelle sur la capitale.",
-    "personnes": "25-50"
+    "personnes": "25-50",
+        "guidée": 0
   },
   {
     "id": "REF007",
@@ -57,7 +62,8 @@
     "continent": "Europe",
     "langues": ["Anglais", "Français"],
     "description": "Ancien amphithéâtre romain situé à Rome, témoin spectaculaire de l’histoire et de la grandeur de l’Empire romain.",
-    "personnes": "5-10"
+    "personnes": "5-10",
+        "guidée": 1
   },
   {
     "id": "REF008",
@@ -67,7 +73,8 @@
     "continent": "Amérique du Sud",
     "langues": ["Espagnol", "Anglais"],
     "description": "Ancienne cité inca perchée dans les Andes péruviennes, classée au patrimoine mondial de l’UNESCO.",
-    "personnes": "10-25"
+    "personnes": "10-25",
+        "guidée": 0
   },
   {
     "id": "REF009",
@@ -77,7 +84,8 @@
     "continent": "Asie",
     "langues": ["Anglais", "Français"],
     "description": "Immense ouvrage défensif s’étendant sur des milliers de kilomètres, symbole de l’histoire et de la civilisation chinoise.",
-    "personnes": "+50"
+    "personnes": "+50",
+        "guidée": 1
   },
   {
     "id": "REF010",
@@ -87,7 +95,8 @@
     "continent": "Océanie",
     "langues": ["Anglais", "Français", "Espagnol"],
     "description": "Bâtiment iconique de l’Australie, reconnu pour son architecture moderne en forme de voiles.",
-    "personnes": "5-10"
+    "personnes": "5-10",
+        "guidée": 0
   },
   {
     "id": "REF011",
@@ -97,7 +106,8 @@
     "continent": "Europe",
     "langues": ["Anglais", "Français", "Espagnol", "Allemand"],
     "description": "Site antique dominant Athènes, regroupant des temples emblématiques de la Grèce antique, dont le Parthénon.",
-    "personnes": "5-10"
+    "personnes": "5-10",
+        "guidée": 0
   },
   {
     "id": "REF012",
@@ -107,7 +117,8 @@
     "continent": "Amérique du Sud",
     "langues": ["Espagnol", "Anglais", "Français"],
     "description": "Ancienne cité maya du Mexique, célèbre pour sa pyramide de Kukulcán et ses connaissances astronomiques.",
-    "personnes": "5-10"
+    "personnes": "5-10",
+        "guidée": 1
   },
   {
     "id": "REF013",
@@ -117,6 +128,7 @@
     "continent": "Asie",
     "langues": ["Anglais", "Français"],
     "description": "Pavillon d’or situé à Kyoto, temple zen entouré de jardins paisibles et recouvert de feuilles d’or.",
-    "personnes": "5-10"
+    "personnes": "5-10",
+        "guidée": 1
   }
 ]
