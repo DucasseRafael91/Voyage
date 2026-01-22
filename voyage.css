@@ -37,6 +37,15 @@ body {
   font-weight: bold;
 }
 
+#modalImage {
+  width: 100%;
+  max-width: 400px;   /* taille max */
+  height: auto;       /* conserve le ratio */
+  object-fit: contain; 
+  border-radius: 8px; 
+  background-color: #f0f0f0; /* optionnel pour le fond */
+}
+
 /* Images des cards */
 #cards-container .card img {
   width: 100%;
@@ -47,8 +56,8 @@ body {
   border-radius: 8px;
 }
 
-/* Hero section */
-.hero {
+/* banniere section */
+.banniere {
   height: 60vh;
   background-image: url("images/bg_image.png");
   background-size: cover;
@@ -57,7 +66,7 @@ body {
 }
 
 /* Overlay sombre */
-.hero::before {
+.banniere::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -65,8 +74,8 @@ body {
   z-index: 1;
 }
 
-/* Contenu du hero */
-.hero-content {
+/* Contenu de la banniere */
+.banniere-content {
   position: relative;
   z-index: 2;
   top: 50%;
