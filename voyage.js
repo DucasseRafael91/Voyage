@@ -168,6 +168,7 @@ function showModal(item) {
   document.getElementById("modalPersons").textContent = item.personnes;
   document.getElementById("modalLanguages").textContent = item.langues.join(", ");
   document.getElementById("modalContinent").textContent = item.continent;
+  document.getElementById("modalGuidee").textContent = item.guidée;
 
   const modalAddBtn = document.getElementById("modalAddToCartBtn");
   modalAddBtn.onclick = () => {
