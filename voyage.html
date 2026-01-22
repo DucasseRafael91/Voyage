@@ -272,7 +272,7 @@
             <div class="row">
 
               <!-- Colonne gauche : image -->
-              <div class="col-md-6 ">
+              <div class="col-md-6 d-flex justify-content-center align-items-start mb-3 mb-md-0">
                 <img id="modalImage" src="" alt="" class="img-fluid" />
               </div>
 
@@ -294,40 +294,24 @@
                 <p>
                   <strong>Continent :</strong> <span id="modalContinent"></span>
                 </p>
+                <!-- Colonne droite : Visite Guidée -->
                 <p>
                   <strong>Visite Guidée Disponible :</strong> <span id="modalGuidee"></span>
                 </p>
               </div>
             </div>
 
-            <!-- Nouvelle ligne pour la description sous l'image -->
+            <!-- Bas : Description  -->
             <div class="row mt-3">
               <div class="col-12">
-                <p id="modalDescription"></p>
+                <p id="modalDescription">
+                </p>
               </div>
             </div>
-          </div>
-
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary rounded-pill"
-              data-bs-dismiss="modal"
-            >
-              Fermer
-            </button>
-            <button
-              type="button"
-              class="btn btn-primary rounded-pill"
-              id="modalAddToCartBtn"
-            >
-              Ajouter au panier
-            </button>
           </div>
         </div>
       </div>
     </div>
-
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="voyage.js"></script>
   </body>
