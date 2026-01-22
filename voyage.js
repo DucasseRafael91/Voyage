@@ -21,6 +21,10 @@ const guidedSwitch = document.getElementById("flexSwitchCheckDefault");
 const personsButtons = document.querySelectorAll(".persons-btn");
 let selectedPersons = "";
 
+const priceMinInput = document.getElementById("price-min");
+const priceMaxInput = document.getElementById("price-max");
+
+
 let allData = [];
 
 /* ================= CHARGEMENT DONNÉES ================= */
@@ -79,6 +83,9 @@ function applyFilters() {
 
   const isGuidedOnly = guidedSwitch.checked;
 
+  const minPrice = parseInt(priceMinInput.value);
+  const maxPrice = parseInt(priceMaxInput.value);
+
   let filteredData = allData;
 
   if (selectedContinent !== "") {
@@ -103,14 +110,27 @@ function applyFilters() {
     );
   }
 
+  // ✅ FILTRE PRIX
+  if (!isNaN(minPrice)) {
+    filteredData = filteredData.filter(item => item.prix >= minPrice);
+  }
+
+  if (!isNaN(maxPrice)) {
+    filteredData = filteredData.filter(item => item.prix <= maxPrice);
+  }
+
   displayCards(filteredData);
 }
+
 
 
 
 continentFilter.addEventListener("change", applyFilters);
 languageCheckboxes.forEach(cb => cb.addEventListener("change", applyFilters));
 guidedSwitch.addEventListener("change", applyFilters);
+priceMinInput.addEventListener("input", applyFilters);
+priceMaxInput.addEventListener("input", applyFilters);
+
 
 
 function addToCart(product) {
