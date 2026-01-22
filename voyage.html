@@ -17,21 +17,21 @@
       <div class="container">
         <!-- Logo de la top bar -->
         <a class="navbar-brand" href="#">
-          <img src="images/logo.png" alt="Logo Voyage" width="50"/>
+          <img src="images/logo.png" alt="Logo Voyage"/>
         </a>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto align-items-center">
+          <ul class="navbar-nav ms-auto">
             <!-- Item accueil de la top bar -->
             <li class="nav-item">
               <a class="nav-link active" href="#">Accueil</a>
             </li>
             <!-- Item Meilleures Offres de la top bar -->
             <li class="nav-item">
-              <a class="nav-link" href="#">Meilleurs Offres</a>
+              <a class="nav-link" href="#cards_id">Nos Offres</a>
             </li>
             <!-- Nous Contactez -->
             <li class="nav-item">
-              <a class="nav-link" href="#">Nous Contactez</a>
+              <a class="nav-link" href="#contact_form">Nous Contactez</a>
             </li>
             <!-- Bouton de connexion -->
             <li class="nav-item">
@@ -64,7 +64,7 @@
     </section>
 
     <!-- Section contenant les cards définis en js -->
-    <section class="cards py-5">
+    <section class="cards py-5" id="cards_id">
       <div class="container-fluid">
         <h1 class="text-center mb-5">
           Nos visites disponibles autour du monde
@@ -79,39 +79,42 @@
               <div class="mb-3">
 
                 <!-- Recherche par continent -->
-                <label class="form-label">Continent</label>
-                <select class="form-select" id="continent-filter">
-                  <option value="">Toutes</option>
-                  <option value="Afrique">Afrique</option>
-                  <option value="Amérique du Nord">Amérique du Nord</option>
-                  <option value="Amérique du Sud">Amérique du Sud</option>
-                  <option value="Antarctique">Antarctique</option>
-                  <option value="Asie">Asie</option>
-                  <option value="Europe">Europe</option>
-                  <option value="Océanie">Océanie</option>
-                </select>
+                <label class="form-label">Continent
+
+                  <select class="form-select" id="continent-filter">
+                    <option value="">Toutes</option>
+                    <option value="Afrique">Afrique</option>
+                    <option value="Amérique du Nord">Amérique du Nord</option>
+                    <option value="Amérique du Sud">Amérique du Sud</option>
+                    <option value="Antarctique">Antarctique</option>
+                    <option value="Asie">Asie</option>
+                    <option value="Europe">Europe</option>
+                    <option value="Océanie">Océanie</option>
+                  </select>
+
+                </label>
+
               </div>
 
               <!-- Recherche par disponibilté des visites guidées -->
               <div class="mb-3">
-                <label class="form-label">Visite Guidée</label>
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-                  <label class="form-check-label" for="flexSwitchCheckDefault">
-                    Incluse
-                    </label>
-                </div>
+                <label class="form-label">Visite Guidée Incluse
+                  <input class="form-check-input" aria-checked="false" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>                        
+                </label>
               </div>
 
               <!-- Recherche par langues-->
               <div class="mb-3">
-                <label class="form-label">Langues</label>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="Français" />
-                  <label class="form-check-label" for="Français">
-                    Français
-                  </label>
-                </div>
+                <p>
+                  Langues
+                </p>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="Français" />
+                    <label class="form-check-label" for="Français">
+                      Français
+                    </label>
+                  </div>
+
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" value=""id="Anglais" />
                   <label class="form-check-label" for="Anglais">
@@ -153,7 +156,7 @@
 
 
               <!-- Recherche par prix-->
-              <label class="form-label">Prix</label>
+              <P>Prix</p>
               <div class="mb-3 d-flex gap-3">
                 <input type="number" class="form-control" id="price-min" placeholder="Min" />
                 <input type="number" class="form-control" id="price-max" placeholder="Max" />
@@ -174,7 +177,7 @@
     </section>
 
     <!-- Formulaire de contact -->
-    <section class="contact py-5 bg-light">
+    <section class="contact py-5 bg-light" id="contact_form">
       <div class="row g-0 align-items-stretch">
         <div class="col-md-5 px-4 mb-4 mb-md-0">
           <div class="card h-100 p-4 shadow-sm">
@@ -201,15 +204,16 @@
           <div class="card p-4 shadow-sm h-100 d-flex flex-column justify-content-center">
             <form>
               <div class="mb-3">
-                <label class="form-label">Nom et Prénom</label>
-                <input type="text" class="form-control" placeholder="Votre nom" required />
+                <label class="form-label">Nom et Prénom
+                  <input type="text" class="form-control" placeholder="Votre nom" required />
+                </label>
               </div>
               <div class="mb-3">
-                <label class="form-label">Email</label>
+                <p>Email</p>
                 <input type="email" class="form-control" placeholder="Votre email" required />
               </div>
               <div class="mb-3">
-                <label class="form-label">Message</label>
+                <p>Message</p>
                 <textarea class="form-control" rows="5" placeholder="Votre message..." required>
                 </textarea>
               </div>
