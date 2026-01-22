@@ -1,14 +1,20 @@
-/* ================= PANIER ================= */
+/* Initialise le panier à la premiere visite puis pour les prochaine est bon car stocké dans le local storage */
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+/* Obets du panier */
 const cartItems = document.getElementById("cart-items");
+/* Prix total du panier */
 const cartTotal = document.getElementById("cart-total");
+/* Compteur  du panier */
 const cartCount = document.getElementById("cart-count");
 
-/* ================= CARDS ET FILTRES ================= */
-const container = document.getElementById("cards-container");
+/* Container des cards */
+const cardcontainer = document.getElementById("cards-container");
+
+/* Filtre des continents */
 const continentFilter = document.getElementById("continent-filter");
 
+/* CheckBox des langues */
 const languageCheckboxes = [
   document.getElementById("Français"),
   document.getElementById("Anglais"),
@@ -16,30 +22,35 @@ const languageCheckboxes = [
   document.getElementById("Allemand")
 ];
 
-const guidedSwitch = document.getElementById("flexSwitchCheckDefault");
+/* Switch des visites guidées */
+const isGuided = document.getElementById("flexSwitchCheckDefault");
 
+/* Boutons permettant la selection du nombre de personnes */
 const personsButtons = document.querySelectorAll(".persons-btn");
+/* Choix du bouton initialités à nulle */
 let selectedPersons = "";
 
+/* Prix minimum */
 const priceMinInput = document.getElementById("price-min");
+/* Prix maximum */
 const priceMaxInput = document.getElementById("price-max");
 
+/* Tableau qui contiendra toute les données des voyages*/
+let dataTrips = [];
 
-let allData = [];
-
-/* ================= CHARGEMENT DONNÉES ================= */
-fetch("data.json")
+/* Récupération des données dans le fichier json */
+fetch("data.json") 
   .then(response => response.json())
   .then(data => {
-    allData = data;
-    displayCards(allData);
+    dataTrips = data;
+    displayCards(dataTrips);
     updateCartUI();
   })
   .catch(error => console.error("Erreur chargement données :", error));
 
 /* ================= AFFICHAGE CARTES ================= */
 function displayCards(data) {
-  container.innerHTML = "";
+  cardcontainer.innerHTML = "";
 
   data.forEach(item => {
     const card = document.createElement("div");
@@ -68,80 +79,76 @@ function displayCards(data) {
       showModal(item);
     });
 
-    container.appendChild(card);
+    cardcontainer.appendChild(card);
   });
 }
 
-
 /* ================= FILTRES COMBINÉS ================= */
 function applyFilters() {
+  let filteredData = dataTrips;
+
   const selectedContinent = continentFilter.value;
+  if (selectedContinent) {
+    filteredData = filteredData.filter(item => item.continent === selectedContinent);
+  }
 
   const selectedLanguages = languageCheckboxes
     .filter(cb => cb.checked)
     .map(cb => cb.id);
-
-  const isGuidedOnly = guidedSwitch.checked;
-
-  const minPrice = parseInt(priceMinInput.value);
-  const maxPrice = parseInt(priceMaxInput.value);
-
-  let filteredData = allData;
-
-  if (selectedContinent !== "") {
-    filteredData = filteredData.filter(
-      item => item.continent === selectedContinent
-    );
-  }
-
   if (selectedLanguages.length > 0) {
     filteredData = filteredData.filter(item =>
       item.langues.some(lang => selectedLanguages.includes(lang))
     );
   }
 
-  if (isGuidedOnly) {
+  if (isGuided.checked) {
     filteredData = filteredData.filter(item => item.guidée === 1);
   }
 
-  if (selectedPersons !== "") {
-    filteredData = filteredData.filter(
-      item => item.personnes === selectedPersons
-    );
+  if (selectedPersons) {
+    filteredData = filteredData.filter(item => item.personnes === selectedPersons);
   }
 
-  // ✅ FILTRE PRIX
-  if (!isNaN(minPrice)) {
-    filteredData = filteredData.filter(item => item.prix >= minPrice);
-  }
+  const minPrice = parseInt(priceMinInput.value);
+  if (!isNaN(minPrice)) filteredData = filteredData.filter(item => item.prix >= minPrice);
 
-  if (!isNaN(maxPrice)) {
-    filteredData = filteredData.filter(item => item.prix <= maxPrice);
-  }
+  const maxPrice = parseInt(priceMaxInput.value);
+  if (!isNaN(maxPrice)) filteredData = filteredData.filter(item => item.prix <= maxPrice);
 
   displayCards(filteredData);
 }
 
-
-
-
+/* ================= ÉVÉNEMENTS FILTRES ================= */
 continentFilter.addEventListener("change", applyFilters);
 languageCheckboxes.forEach(cb => cb.addEventListener("change", applyFilters));
-guidedSwitch.addEventListener("change", applyFilters);
+isGuided.addEventListener("change", applyFilters);
 priceMinInput.addEventListener("input", applyFilters);
 priceMaxInput.addEventListener("input", applyFilters);
 
+personsButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    if (selectedPersons === btn.dataset.personnes) {
+      selectedPersons = "";
+      btn.classList.remove("btn-primary");
+      btn.classList.add("btn-outline-primary");
+    } else {
+      selectedPersons = btn.dataset.personnes;
+      personsButtons.forEach(b => {
+        b.classList.remove("btn-primary");
+        b.classList.add("btn-outline-primary");
+      });
+      btn.classList.remove("btn-outline-primary");
+      btn.classList.add("btn-primary");
+    }
+    applyFilters();
+  });
+});
 
-
+/* ================= PANIER ================= */
 function addToCart(product) {
   const found = cart.find(item => item.id === product.id);
-
-  if (found) {
-    found.qty++;
-  } else {
-    cart.push({ ...product, qty: 1 });
-  }
-
+  if (found) found.qty++;
+  else cart.push({ ...product, qty: 1 });
   saveCart();
 }
 
@@ -159,8 +166,7 @@ function updateCartUI() {
   if (!cartItems) return;
 
   cartItems.innerHTML = "";
-  let total = 0;
-  let count = 0;
+  let total = 0, count = 0;
 
   cart.forEach(item => {
     total += item.prix * item.qty;
@@ -183,30 +189,7 @@ function updateCartUI() {
   cartCount.textContent = count;
 }
 
-personsButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    // Toggle (désélection si recliqué)
-    if (selectedPersons === btn.dataset.personnes) {
-      selectedPersons = "";
-      btn.classList.remove("btn-primary");
-      btn.classList.add("btn-outline-primary");
-    } else {
-      selectedPersons = btn.dataset.personnes;
-
-      personsButtons.forEach(b => {
-        b.classList.remove("btn-primary");
-        b.classList.add("btn-outline-primary");
-      });
-
-      btn.classList.remove("btn-outline-primary");
-      btn.classList.add("btn-primary");
-    }
-
-    applyFilters();
-  });
-});
-
-
+/* ================= MODAL ================= */
 function showModal(item) {
   const modal = new bootstrap.Modal(document.getElementById("cardModal"));
 
