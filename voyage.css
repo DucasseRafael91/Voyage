@@ -21,8 +21,12 @@ body {
 
 /* Navbar transparente */
 .navbar {
-  background-color: transparent !important;
-  transition: background-color 0.3s ease;
+  background-color: black;
+}
+
+.navbar-brand img {
+  width: 50px;
+  height: auto;
 }
 
 /* Navbar après scroll */

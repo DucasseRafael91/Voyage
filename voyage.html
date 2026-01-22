@@ -35,7 +35,7 @@
             </li>
             <!-- Bouton de connexion -->
             <li class="nav-item">
-              <button class="btn btn-outline-light me-2 rounded-pill">
+              <button class="btn btn-outline-light me-2 rounded-pill" data-bs-toggle="modal" data-bs-target="#loginModal">
                 Connexion
               </button>
             </li>
@@ -318,6 +318,41 @@
         </div>
       </div>
     </div>
+
+    <!-- MODAL CONNEXION -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Connexion</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <form id="loginForm">
+
+          <div class="mb-3">
+            <label class="form-label">Nom d'utilisateur</label>
+            <input type="text" class="form-control" required />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Mot de passe</label>
+            <input type="password" class="form-control" required />
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100 rounded-pill">
+            Se connecter
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="voyage.js"></script>
   </body>
