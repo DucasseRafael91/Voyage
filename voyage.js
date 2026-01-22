@@ -220,11 +220,5 @@ function showModal(item) {
   document.getElementById("modalContinent").textContent = item.continent;
   document.getElementById("modalGuidee").textContent = item.guidée;
 
-  const modalAddBtn = document.getElementById("modalAddToCartBtn");
-  modalAddBtn.onclick = () => {
-    addToCart(item);
-    modal.hide();
-  };
-
   modal.show();
 }
