@@ -43,88 +43,118 @@ fetch("data.json")
   .then(response => response.json())
   .then(data => {
     dataTrips = data;
+    /* Affichage des cards */
     displayCards(dataTrips);
-    updateCartUI();
+    /* Mise à jour du panier si des valeurs sont stockées dans le localStorage*/
+    updateCartInterface();
   })
+  /* Erreur si récupération des données impossibles*/
   .catch(error => console.error("Erreur chargement données :", error));
 
-/* ================= AFFICHAGE CARTES ================= */
+/* Fonction permettant d'afficher les cards dans le HTML */
 function displayCards(data) {
   cardcontainer.innerHTML = "";
 
+  /* Boucle pour chaque card */
   data.forEach(item => {
     const card = document.createElement("div");
     card.className = "col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center";
 
     card.innerHTML = `
+      <!-- Taille de la card -->
       <div class="card h-100 w-100 cursor-pointer">
+        <!-- Image + nom de la card en alt -->
         <img src="${item.image}" class="card-img-top" alt="${item.nom}">
         <div class="card-body">
+          <!-- Nom de la card -->
           <h5 class="card-title">${item.nom}</h5>
+          <!-- Prix de la card -->
           <p>À partir de <strong>${item.prix} €</strong></p>
           <div class="d-flex justify-content-between align-items-center">
+            <!-- Nombre de personnes de la card -->
             <span class="fw-bold">${item.personnes} Pers</span>
+            <!-- Bouton pour ajouter la card au panier -->
             <button class="btn btn-primary rounded-pill add-to-cart-btn"
               onclick='addToCart(${JSON.stringify(item)})'>
               Ajouter au panier
             </button>
           </div>
+          <!-- Description de la card -->
           <p class="card-text mt-2">${item.description}</p>
         </div>
       </div>
     `;
 
+    /* Si clique sur le bouton ajouter au panier ne fait rien sinon montre la modal detail de la card  */
     card.querySelector(".card").addEventListener("click", (e) => {
-      if (e.target.classList.contains("add-to-cart-btn")) return;
+      if (e.target.classList.contains("add-to-cart-btn")) 
+        return;
       showModal(item);
     });
 
+    /* Stocke le HTML en card dans cardcontainer  */
     cardcontainer.appendChild(card);
   });
 }
 
-/* ================= FILTRES COMBINÉS ================= */
+/* Fonction pour appliquer le filtre */
 function applyFilters() {
+
+  /* Recupere les données des voyages dans filtetedData */
   let filteredData = dataTrips;
 
+  /* Recupere quel continent à été choisie */
   const selectedContinent = continentFilter.value;
+  /* Si le continent n'est pas vide filtedData enleve toutes les données n'ayant pas le bon continent */
   if (selectedContinent) {
     filteredData = filteredData.filter(item => item.continent === selectedContinent);
   }
 
+  /* Recupere les langues selectionnés */
   const selectedLanguages = languageCheckboxes
     .filter(cb => cb.checked)
     .map(cb => cb.id);
+  /* Si le nombre de langues n'est pas vide filtedData enleve toutes les données n'ayant pas la ou les bonnes langues */
   if (selectedLanguages.length > 0) {
     filteredData = filteredData.filter(item =>
       item.langues.some(lang => selectedLanguages.includes(lang))
     );
   }
 
+  /* Si le switch de visite guidée est checkée filteredData enleve toutes les données n'ayant pas de visite guidée  */
   if (isGuided.checked) {
     filteredData = filteredData.filter(item => item.guidée === 1);
   }
 
+  /* Si selectedPersons n'est pas vide alors filteredData enleve toutes les données n'ayant pas le bon nombre de personnes */
   if (selectedPersons) {
     filteredData = filteredData.filter(item => item.personnes === selectedPersons);
   }
 
+  /* Recupere la valeur du prix minimum */
   const minPrice = parseInt(priceMinInput.value);
-  if (!isNaN(minPrice)) filteredData = filteredData.filter(item => item.prix >= minPrice);
+  /* Si la valeur existe alors filteredData enleve toutes les données yant un prix inférieur au prix minimum*/
+  if (minPrice) 
+    filteredData = filteredData.filter(item => item.prix >= minPrice);
 
+  /* Recupere la valeur du prix maximum */
   const maxPrice = parseInt(priceMaxInput.value);
-  if (!isNaN(maxPrice)) filteredData = filteredData.filter(item => item.prix <= maxPrice);
+  /* Si la valeur existe alors filteredData enleve toutes les données yant un prix supérieur au prix maximum*/
+  if (maxPrice) 
+    filteredData = filteredData.filter(item => item.prix <= maxPrice);
 
+  /* Affichage des cards filtrés*/
   displayCards(filteredData);
 }
 
-/* ================= ÉVÉNEMENTS FILTRES ================= */
+/* A chaque changement d'un paramétre dans les filtres réappelle applyFilters */
 continentFilter.addEventListener("change", applyFilters);
 languageCheckboxes.forEach(cb => cb.addEventListener("change", applyFilters));
 isGuided.addEventListener("change", applyFilters);
 priceMinInput.addEventListener("input", applyFilters);
 priceMaxInput.addEventListener("input", applyFilters);
 
+/* Fonction qui change le bouton du nombre de personne selectionné et change aussi la couleur pruis réapplique le filtre*/
 personsButtons.forEach(btn => {
   btn.addEventListener("click", () => {
     if (selectedPersons === btn.dataset.personnes) {
@@ -144,26 +174,74 @@ personsButtons.forEach(btn => {
   });
 });
 
-/* ================= PANIER ================= */
+/* ================= Fonction pour ajouter un produit au banier================= */
 function addToCart(product) {
-  const found = cart.find(item => item.id === product.id);
-  if (found) found.qty++;
-  else cart.push({ ...product, qty: 1 });
+  // Cherche si le produit est déjà dans le panier
+  let product_found = null;
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].id === product.id) {
+      product_found = cart[i];
+      break;
+    }
+  }
+
+  if (product_found !== null) {
+    // Si le produit est déjà dans le panier, on augmente la quantité
+    product_found.qty = product_found.qty + 1;
+  } 
+  else {
+    // Sinon, on ajoute le produit au panier avec qty = 1
+    const productToAdd = {
+      id: product.id,
+      nom: product.nom,
+      prix: product.prix,
+      personnes: product.personnes,
+      image: product.image,
+      description: product.description,
+      langues: product.langues,
+      continent: product.continent,
+      guidée: product.guidée,
+      qty: 1
+    };
+    cart.push(productToAdd);
+  }
+
+  // Sauvegarde le panier dans le localStorage et met à jour l'affichage
   saveCart();
 }
+
 
 function removeFromCart(id) {
-  cart = cart.filter(item => item.id !== id);
+  // Crée un nouveau tableau pour stocker les produits qui restent dans le panier
+  let newCart = [];
+
+  // Parcourt tous les produits du panier
+  for (let i = 0; i < cart.length; i++) {
+    let item = cart[i];
+
+    // Si l'id du produit actuel est différent de celui qu'on veut supprimer,
+    // on le garde dans le nouveau panier
+    if (item.id !== id) {
+      newCart.push(item);
+    }
+  }
+
+  // Remplace l'ancien panier par le nouveau panier filtré
+  cart = newCart;
+
+  // Sauvegarde le panier mis à jour dans le localStorage et met à jour l'affichage
   saveCart();
 }
 
+// Sauvegarde le panier mis à jour dans le localStorage et met à jour l'affichage
 function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartUI();
+  updateCartInterface();
 }
 
-function updateCartUI() {
-  if (!cartItems) return;
+function updateCartInterface() {
+  if (!cartItems) 
+    return;
 
   cartItems.innerHTML = "";
   let total = 0, count = 0;
