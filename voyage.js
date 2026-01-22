@@ -132,13 +132,13 @@ function applyFilters() {
   }
 
   /* Recupere la valeur du prix minimum */
-  const minPrice = parseInt(priceMinInput.value);
+  const minPrice = Number.parseInt(priceMinInput.value);
   /* Si la valeur existe alors filteredData enleve toutes les données yant un prix inférieur au prix minimum*/
   if (minPrice) 
     filteredData = filteredData.filter(item => item.prix >= minPrice);
 
   /* Recupere la valeur du prix maximum */
-  const maxPrice = parseInt(priceMaxInput.value);
+  const maxPrice = Number.parseInt(priceMaxInput.value);
   /* Si la valeur existe alors filteredData enleve toutes les données yant un prix supérieur au prix maximum*/
   if (maxPrice) 
     filteredData = filteredData.filter(item => item.prix <= maxPrice);
@@ -178,18 +178,14 @@ personsButtons.forEach(btn => {
 function addToCart(product) {
   // Cherche si le produit est déjà dans le panier
   let product_found = null;
-  for (let i = 0; i < cart.length; i++) {
-    if (cart[i].id === product.id) {
-      product_found = cart[i];
+  for (const element of cart) {
+    if (element.id === product.id) {
+      product_found = element;
       break;
     }
   }
 
-  if (product_found !== null) {
-    // Si le produit est déjà dans le panier, on augmente la quantité
-    product_found.qty = product_found.qty + 1;
-  } 
-  else {
+  if (product_found === null) {
     // Sinon, on ajoute le produit au panier avec qty = 1
     const productToAdd = {
       id: product.id,
@@ -204,6 +200,10 @@ function addToCart(product) {
       qty: 1
     };
     cart.push(productToAdd);
+  } 
+  else {
+    // Si le produit est déjà dans le panier, on augmente la quantité
+    product_found.qty = product_found.qty + 1;
   }
 
   // Sauvegarde le panier dans le localStorage et met à jour l'affichage
@@ -216,8 +216,8 @@ function removeFromCart(id) {
   let newCart = [];
 
   // Parcourt tous les produits du panier
-  for (let i = 0; i < cart.length; i++) {
-    let item = cart[i];
+  for (const element of cart) {
+    let item = element;
 
     // Si l'id du produit actuel est différent de celui qu'on veut supprimer,
     // on le garde dans le nouveau panier
